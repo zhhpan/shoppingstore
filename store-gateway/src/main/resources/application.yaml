@@ -1,0 +1,56 @@
+
+spring:
+  application:
+    name: gateway-service
+  mvc:
+    # 配置静态资源可以被访问！
+    static-path-pattern: /images/**
+  web:
+    resources:
+      static-locations: classpath:/images/
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+        file-extension: yml
+        import-check:
+          enabled: false
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:3001
+          predicates:
+            - Path=/user/**  # 访问user路径转发用户服务
+        - id: static-service
+          uri: http://localhost:3002
+          predicates:
+            - Path=/imgs/** # 访问static相关,转发到static服务
+        - id: product-service
+          uri: http://localhost:3003
+          predicates:
+            - Path=/product/** # 访问product相关,转发到product服务
+        - id: category-service
+          uri: http://localhost:3004
+          predicates:
+            - Path=/category/** # 访问category相关,转发到category服务
+        - id: search-service
+          uri: http://localhost:3005
+          predicates:
+            - Path=/search/** # 访问search相关,转发到search服务
+        - id: collect-service
+          uri: http://localhost:3006
+          predicates:
+            - Path=/collect/** # 访问collect相关,转发到collect服务
+        - id: cart-service
+          uri: http://localhost:3007
+          predicates:
+            - Path=/cart/** # 访问cart相关,转发到cart服务
+        - id: order-service
+          uri: http://localhost:3008
+          predicates:
+            - Path=/order/** # 访问order相关,转发到order服务
+server:
+  port: 3000

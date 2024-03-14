@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.pan</groupId>
+    <artifactId>shoppingstore</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>store-gateway</module>
+        <module>store-common-none</module>
+        <module>store-front-user</module>
+        <module>store-static</module>
+        <module>store-product</module>
+        <module>store-category</module>
+        <module>store-search</module>
+        <module>store-collect</module>
+        <module>store-cart</module>
+        <module>store-order</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--springboot 3.2.0-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>3.2.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--springcloud 2023.0.0-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2023.0.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--springcloud alibaba 2022.0.0.0-RC2-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2022.0.0.0-RC2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--SpringBoot集成mybatis-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>3.0.3</version>
+            </dependency>
+            <!--Mysql数据库驱动8 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.28</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+            <dependency>
+              <groupId>javax.validation</groupId>
+              <artifactId>validation-api</artifactId>
+              <version>1.1.0.Final</version>
+            </dependency>
+
+
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba</groupId>-->
+<!--                <artifactId>druid</artifactId>-->
+<!--                <version>1.1.10</version>-->
+<!--            </dependency>-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.4</version>
+            </dependency>
+<!--            &lt;!&ndash;通用Mapper4之tk.mybatis&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>tk.mybatis</groupId>-->
+<!--                <artifactId>mapper</artifactId>-->
+<!--                <version>${mapper.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash;persistence&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>javax.persistence</groupId>-->
+<!--                <artifactId>persistence-api</artifactId>-->
+<!--                <version>${persistence-api.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash; fastjson2 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.fastjson2</groupId>-->
+<!--                <artifactId>fastjson2</artifactId>-->
+<!--                <version>${fastjson2.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash; swagger3 调用方式 http://你的主机IP地址:5555/swagger-ui/index.html &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.springdoc</groupId>-->
+<!--                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
+<!--                <version>${swagger3.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash;hutool&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>cn.hutool</groupId>-->
+<!--                <artifactId>hutool-all</artifactId>-->
+<!--                <version>${hutool.version}</version>-->
+<!--            </dependency>-->
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.30</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- spring-boot-starter-test -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>3.1.5</version>
+                <scope>test</scope>
+            </dependency>
+            <!--使用Spring Cloud LoadBalancer 进行客户端负载均衡-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-loadbalancer</artifactId>
+                <version>4.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>8.11.4</version>
+            </dependency>
+<!--            &lt;!&ndash;micrometer-tracing-bom导入链路追踪版本中心  1&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>io.micrometer</groupId>-->
+<!--                <artifactId>micrometer-tracing-bom</artifactId>-->
+<!--                <version>${micrometer-tracing.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash;micrometer-tracing指标追踪  2&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>io.micrometer</groupId>-->
+<!--                <artifactId>micrometer-tracing</artifactId>-->
+<!--                <version>${micrometer-tracing.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash;micrometer-tracing-bridge-brave适配zipkin的桥接包 3&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>io.micrometer</groupId>-->
+<!--                <artifactId>micrometer-tracing-bridge-brave</artifactId>-->
+<!--                <version>${micrometer-tracing.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash;micrometer-observation 4&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>io.micrometer</groupId>-->
+<!--                <artifactId>micrometer-observation</artifactId>-->
+<!--                <version>${micrometer-observation.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash;feign-micrometer 5&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>io.github.openfeign</groupId>-->
+<!--                <artifactId>feign-micrometer</artifactId>-->
+<!--                <version>${feign-micrometer.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash;zipkin-reporter-brave 6&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>io.zipkin.reporter2</groupId>-->
+<!--                <artifactId>zipkin-reporter-brave</artifactId>-->
+<!--                <version>${zipkin-reporter-brave.version}</version>-->
+<!--            </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+
+
+
+
+
+</project>

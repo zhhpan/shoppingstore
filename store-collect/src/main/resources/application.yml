@@ -1,0 +1,30 @@
+server:
+  port: 3006
+spring:
+  application:
+    name: collect-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+        file-extension: yml
+        import-check:
+          enabled: false
+  # 连接池配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/store_collect?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: panzhenghan
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+  type-aliases-package: org.spm.pojo #设置别名a
